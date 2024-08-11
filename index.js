@@ -35,3 +35,19 @@ client.connect((err) => {
       res.send(books);
     });
   });
+
+   //issue book get
+   app.get("/getIssueBooks", (req, res) => {
+    issueBooksCollection.find().toArray((err, issueBooks) => {
+      res.send(issueBooks);
+    });
+  });
+  // books post
+  app.post("/addBook", (req, res) => {
+    const newBook = req.body;
+    console.log("new book", newBook);
+    booksCollection.insertOne(newBook).then((result) => {
+      console.log("Inserted Count ", result.acknowledged);
+      res.send(result.acknowledged > 0);
+    });
+  });
