@@ -51,3 +51,12 @@ client.connect((err) => {
       res.send(result.acknowledged > 0);
     });
   });
+   //issueBooks post
+   app.post("/issueBook", (req, res) => {
+    const issueBook = req.body;
+    console.log("Issue Book", issueBook);
+    issueBooksCollection.insertOne(issueBook).then((result) => {
+      console.log("Book Issue ", result.acknowledged);
+      res.send(result.acknowledged > 0);
+    });
+  });
