@@ -1,3 +1,3 @@
 * Server site 
-* BreadcrumbsGalactic-Tome-Nexus-Library-Server
+* Galactic Tome Nexus Library Server
 * Library Mangement System
