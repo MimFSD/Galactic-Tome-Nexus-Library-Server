@@ -72,14 +72,7 @@ client.connect((err) => {
     });
   });
 
-  //add admin
-  app.post("/addLibrarian", (req, res) => {
-    const librarian = req.body;
-    librarianCollection.insertOne(librarian).then((result) => {
-      console.log("librarian ", result.acknowledged);
-      res.send(result.acknowledged > 0);
-    });
-  });
+
 
     //update issue book
     app.patch("/update/:id", (req, res) => {
@@ -104,3 +97,4 @@ client.connect((err) => {
             res.send(result.matchedCount > 0);
           });
       });
+    }
