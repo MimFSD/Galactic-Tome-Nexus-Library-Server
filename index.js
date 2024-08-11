@@ -4,3 +4,9 @@ const { MongoClient } = require("mongodb");
 const ObjectID = require("mongodb").ObjectID;
 const cors = require("cors");
 require("dotenv").config();
+
+const port = 5000;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.zqlov.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
+
+app.use(cors());
+app.use(express.json());
