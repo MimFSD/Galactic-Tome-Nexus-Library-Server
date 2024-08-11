@@ -28,3 +28,10 @@ client.connect((err) => {
     .collection("issueBooks");
   // librarian collection
   const librarianCollection = client.db("ist-library").collection("librarian");
+
+   // books get
+   app.get("/getBooks", (req, res) => {
+    booksCollection.find().toArray((err, books) => {
+      res.send(books);
+    });
+  });
