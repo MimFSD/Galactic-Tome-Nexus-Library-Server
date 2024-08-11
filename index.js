@@ -60,3 +60,14 @@ client.connect((err) => {
       res.send(result.acknowledged > 0);
     });
   });
+
+   // Department books
+   app.post("/booksByDepartment", (req, res) => {
+    // console.log(req);
+    const department = req.body.departmentName;
+    // console.log("Department Name", department);
+    booksCollection.find({ department }).toArray((err, books) => {
+      // console.log("books", books);
+      res.send(books);
+    });
+  });
