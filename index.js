@@ -48,3 +48,17 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
+
+async function run() {
+    try {
+      // Connect the client to the server	(optional starting in v4.7)
+      // await client.connect();
+  
+      const database = client.db("libraryManage");
+      const brandCollection = database.collection("categories");
+      const teamCollection = database.collection("team");
+      const bookCollection = database.collection("book");
+      const cartCollection = database.collection("cart");
+      const reviewCollection = database.collection("review");
+    }
+}  
