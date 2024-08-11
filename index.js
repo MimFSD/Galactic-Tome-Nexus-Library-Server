@@ -1,11 +1,6 @@
-import React from 'react';
-
-const index = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
-
-export default index;
+const express = require("express");
+const app = express();
+const { MongoClient } = require("mongodb");
+const ObjectID = require("mongodb").ObjectID;
+const cors = require("cors");
+require("dotenv").config();
