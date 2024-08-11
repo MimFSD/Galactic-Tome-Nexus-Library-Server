@@ -80,3 +80,27 @@ client.connect((err) => {
       res.send(result.acknowledged > 0);
     });
   });
+
+    //update issue book
+    app.patch("/update/:id", (req, res) => {
+        const id = ObjectID(req.params.id);
+        issueBooksCollection
+          .updateOne(
+            { _id: id },
+            {
+              $set: {
+                bookName: req.body.bookName,
+                department: req.body.department,
+                issueDate: req.body.issueDate,
+                returnDate: req.body.returnDate,
+                roll: req.body.roll,
+                semester: req.body.semester,
+                studentName: req.body.studentName,
+              },
+            }
+          )
+          .then((result) => {
+            console.log("Update", result);
+            res.send(result.matchedCount > 0);
+          });
+      });
