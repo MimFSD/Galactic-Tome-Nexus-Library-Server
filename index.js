@@ -65,9 +65,18 @@ client.connect((err) => {
    app.post("/booksByDepartment", (req, res) => {
     // console.log(req);
     const department = req.body.departmentName;
-    // console.log("Department Name", department);
+    
     booksCollection.find({ department }).toArray((err, books) => {
       // console.log("books", books);
       res.send(books);
+    });
+  });
+
+  //add admin
+  app.post("/addLibrarian", (req, res) => {
+    const librarian = req.body;
+    librarianCollection.insertOne(librarian).then((result) => {
+      console.log("librarian ", result.acknowledged);
+      res.send(result.acknowledged > 0);
     });
   });
